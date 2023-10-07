@@ -48,3 +48,11 @@ elif 85 <= ortalamaRound <= 100:
     print('Notunuz: 5')
 else:
     print('Yanlış puan girdiniz.')
+
+#3 Trafiğe çıkış tarihi alınan bir aracın servis zamanını aşağıdaki bilgilere göre hesaplayınız.
+# 1. bakım  1 yıl
+# 2. bakım  2. yıl
+# 3. bakım  3. yıl
+# *Süre hesabını alınan gün, ay, yıl bilgisine göre gün bazlı hesaplayınız.
+# ** datetime modülünü kullanmanız gerekiyor.
+
