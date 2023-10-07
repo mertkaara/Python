@@ -55,4 +55,36 @@ else:
 # 3. bakım  3. yıl
 # *Süre hesabını alınan gün, ay, yıl bilgisine göre gün bazlı hesaplayınız.
 # ** datetime modülünü kullanmanız gerekiyor.
+# days = int(input('Aracınız kaç gündür trafikte:'))
 
+# if days <= 365:
+#     print('1. servis aralığı.')
+# elif days>365 and days<= 365*2:
+#     print('2. servis aralığı.')
+# elif days>365*2 and days<=365*3:
+#     print('3. sevis aralığı.')
+# else:
+#     print('Araç pert..')
+
+import datetime
+tarih = input('Aracaınız hangi tarihte trafiğe çıktı?(yyyy/aa/gg):')
+tarih = tarih.split('/')
+simdi = datetime.datetime.now()
+trafigeCikis = datetime.datetime(int(tarih[0]),int(tarih[1]),int(tarih[2]))
+fark = simdi - trafigeCikis
+days = fark.days
+print(f'Aracınız {days} gündür trafikte.')
+if days <= 365:
+    print('1. servis aralığı.')
+elif days>365 and days<= 365*2:
+    print('2. servis aralığı.')
+elif days>365*2 and days<=365*3:
+    print('3. sevis aralığı.')
+elif days>365*3 and days<=365*4:
+    print('4. sevis aralığı.')
+elif days>365*4 and days<=365*5:
+    print('5. sevis aralığı.')
+elif days>365*5 and days<=365*6:
+    print('6. sevis aralığı.')
+else:
+    print('Araç pert...')
