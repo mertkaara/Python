@@ -7,28 +7,28 @@
 #     y += 1
 
 #2- Başlanıç ve bitiş değerlerini kullanıcdan alıp aradaki tüm tek sayıları ekrana yazdırın.
-# basNum = int(input('Başlangıç sayısı giriniz:'))
-# sonNum = int(input('Bitiş sayısı giriniz:'))
-# if basNum - sonNum < 0:
-#     if basNum%2==1:
-#         while basNum <= sonNum:
-#             print(basNum)
-#             basNum += 2
-#     else:
-#         basNum+=1
-#         while basNum <= sonNum:
-#             print(basNum) 
-#             basNum += 2
-# else:
-#     if sonNum%2==1:
-#         while sonNum <= basNum:
-#             print(sonNum)
-#             sonNum += 2
-#     else:
-#         sonNum+=1
-#         while sonNum <= basNum:
-#             print(sonNum)
-#             sonNum += 2
+basNum = int(input('Başlangıç sayısı giriniz:'))
+sonNum = int(input('Bitiş sayısı giriniz:'))
+if basNum - sonNum < 0:
+    if basNum%2==1:
+        while basNum <= sonNum:
+            print(basNum)
+            basNum += 2
+    else:
+        basNum+=1
+        while basNum <= sonNum:
+            print(basNum) 
+            basNum += 2
+else:
+    if sonNum%2==1:
+        while sonNum <= basNum:
+            print(sonNum)
+            sonNum += 2
+    else:
+        sonNum+=1
+        while sonNum <= basNum:
+            print(sonNum)
+            sonNum += 2
 
 #3- 1-100 arasındaki sayıları azalan şekilde yazdırın.
 # x = 100
