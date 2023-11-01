@@ -12,6 +12,8 @@ class Person:
     # instance methods
     def intro(self):
         print('Hello there. I am '+ self.name)
+    def calculateAge(self):
+        return 2023 - self.year
 
 
 # object (instance)
@@ -20,7 +22,7 @@ p2 = Person(year = 1995, name = 'yağmur')
 
 p1.intro()
 p2.intro()
-
+print(f'Merhaba adım {p1.name} ve yaşım {p1.calculateAge()}')
 # # updating
 # p1.name = 'ahmet'
 # p1.adress = 'kocaeli'
