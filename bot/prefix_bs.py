@@ -6,8 +6,7 @@ import random
 import win32api, win32con
 from PIL import Image
 from pytesseract import *
-pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
-
+pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 #Alan:
 #Sol üst = X:  830 Y:  460      x:830   y:465
 #Sağ üst = X: 1329 Y:  470      x:1370  y:465 
@@ -48,8 +47,8 @@ def double_click(x, y):
 
 def item_check():
     while keyboard.is_pressed('q') == False:
-        pic = pyautogui.screenshot(region=(1050,625,260,30))
-        new_size = (3 * pic.width, 3 * pic.height)
+        pic = pyautogui.screenshot(region=(1026,667,236,30))
+        new_size = (4 * pic.width, 4 * pic.height)
         pic = pic.resize(new_size)
         output = pytesseract.image_to_string(pic)
         output = output.split(' ')
@@ -61,7 +60,7 @@ while keyboard.is_pressed('q') == False:
     time.sleep(random_bekleme)
     x = item_check()
     print(x[0])
-    if x[0] not in ('Legend', 'Meteo', 'Bio', 'Bandit'):
+    if x[0] not in ('Legend', 'Bio', 'Bandit', 'Max'):
         time.sleep(random.uniform(0.45, 0.9))
         double_click((random.randint(931,955)),(random.randint(647,668)))   #item
         time.sleep(random_bekleme)

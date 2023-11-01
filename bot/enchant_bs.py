@@ -6,20 +6,19 @@ import random
 import win32api, win32con
 from PIL import Image
 from pytesseract import *
-pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
-
-#Alan:
-#Sol üst = X:  830 Y:  460      x:830   y:465
-#Sağ üst = X: 1329 Y:  470      x:1370  y:465 
-#Sağ alt = X: 1370 Y:  999      x:1370  y:1000
-#Sol alt = X:  801 Y:  963      x:830   y:1000
-
-#Item isim:
+pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+#Item isim BigSmash:
 #Sol üst = x:1026 y:667
 #Sağ üst = x:1262 y:667 
 #Sağ alt = x:1262 y:690
 #Sol alt = x:1026 y:690
 #(1026,667,236,30)
+
+#Item enchant BigSmash:
+#sol üst 1120 634
+#sol alt 1120 660
+#sağ üst 1207 634
+#sağ alt 1207 660
 
 #envanterdeki item koordinatları = x:942 y:660 648-668
 #prefix silme = x:818 y:660
@@ -48,11 +47,11 @@ def double_click(x, y):
 
 def item_check():
     while keyboard.is_pressed('q') == False:
-        pic = pyautogui.screenshot(region=(1050,625,260,30))
-        new_size = (3 * pic.width, 3 * pic.height)
+        pic = pyautogui.screenshot(region=(1110,640,70,20))
+        new_size = (6 * pic.width, 6 * pic.height)
         pic = pic.resize(new_size)
         output = pytesseract.image_to_string(pic)
-        output = output.split(' ')
+        output = output.split(':')
         output = [item.strip() for item in output if item.strip()]
         return output
 
@@ -60,33 +59,29 @@ while keyboard.is_pressed('q') == False:
     win32api.SetCursorPos((942, 660))
     time.sleep(random_bekleme)
     x = item_check()
-    print(x[0])
-    if x[0] not in ('Legend', 'Meteo', 'Bio', 'Bandit'):
+    print(x[1])
+    if x[1] != ('10'):
         time.sleep(random.uniform(0.45, 0.9))
         double_click((random.randint(931,955)),(random.randint(647,668)))   #item
         time.sleep(random_bekleme)
-        double_click((random.randint(868,891)),(random.randint(647,668)))   #prefix silme
+        double_click((random.randint(868,891)),(random.randint(647,668)))   #suffix silme
         time.sleep(random.uniform(0.7, 0.9))
+        double_click((random.randint(901,922)),(random.randint(647,668)))   #suffix basma
+        time.sleep(random.uniform(0.4, 0.8))
         double_click((random.randint(1183,1214)),(random.randint(859,870))) #refine button
         time.sleep(random_bekleme)
-        #double_click((random.randint(1183,1214)),(random.randint(859,870))) #ok button
+        '''#double_click((random.randint(1183,1214)),(random.randint(859,870))) #ok button
         #time.sleep(random.uniform(0.7, 0.9))
         double_click((random.randint(931,955)),(random.randint(647,668)))   #item
         time.sleep(random_bekleme)
-        double_click((random.randint(901,922)),(random.randint(647,668)))   #prefix basma
+        double_click((random.randint(901,922)),(random.randint(647,668)))   #suffix basma
         time.sleep(random.uniform(0.4, 0.8))
         double_click((random.randint(1183,1214)),(random.randint(859,870))) #refine button
         time.sleep(random_bekleme)
         #double_click((random.randint(1183,1214)),(random.randint(859,870))) #ok button
-        #time.sleep(random_bekleme)
+        #time.sleep(random_bekleme)'''
         continue
     break
     
-print('Gelen ek:',x[0])
-
-
-    
-    
-
-
+print('Gelen ek:',x[1])
 

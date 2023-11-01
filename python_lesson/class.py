@@ -9,21 +9,26 @@ class Person:
         self.name = name
         self.year = year
         print('init metodu çalıştı.')
-    # methods
+    # instance methods
+    def intro(self):
+        print('Hello there. I am '+ self.name)
 
 
 # object (instance)
 p1 = Person('ali',1990)
 p2 = Person(year = 1995, name = 'yağmur')
 
-# updating
-p1.name = 'ahmet'
-p1.adress = 'kocaeli'
+p1.intro()
+p2.intro()
 
-# accessing object attributes
-print(f'name: {p1.name}, year: {p1.year}, adress: {p1.adress}')
-print(f'name: {p2.name}, year: {p2.year}, adress: {p2.adress}')
+# # updating
+# p1.name = 'ahmet'
+# p1.adress = 'kocaeli'
+
+# # accessing object attributes
+# print(f'name: {p1.name}, year: {p1.year}, adress: {p1.adress}')
+# print(f'name: {p2.name}, year: {p2.year}, adress: {p2.adress}')
 
 
-print(p1)
-print(type(p1))
+# print(p1)
+# print(type(p1))

@@ -6,8 +6,7 @@ import random
 import win32api, win32con
 from PIL import Image
 from pytesseract import *
-pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
-
+pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 #Alan:
 #Sol üst = X:  830 Y:  460      x:830   y:465
 #Sağ üst = X: 1329 Y:  470      x:1370  y:465 
@@ -29,9 +28,9 @@ pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
 #refine button = x:1201 y:864
 
 
-random_sleep_time = random.uniform(0.14, 0.26)
-random_click_time = random.uniform(0.048, 0.11)
-random_bekleme = random.uniform(0.5, 0.9)
+random_sleep_time = random.uniform(0.14, 0.24)
+random_click_time = random.uniform(0.04, 0.09)
+random_bekleme = random.uniform(0.3, 0.6)
 def double_click2(x,y):
     pyautogui.doubleClick(x, y)
     
@@ -48,8 +47,8 @@ def double_click(x, y):
 
 def item_check():
     while keyboard.is_pressed('q') == False:
-        pic = pyautogui.screenshot(region=(1050,625,260,30))
-        new_size = (3 * pic.width, 3 * pic.height)
+        pic = pyautogui.screenshot(region=(1045,615,268,35))
+        new_size = (4 * pic.width, 4 * pic.height)
         pic = pic.resize(new_size)
         output = pytesseract.image_to_string(pic)
         output = output.split(' ')
@@ -60,21 +59,21 @@ while keyboard.is_pressed('q') == False:
     win32api.SetCursorPos((942, 660))
     time.sleep(random_bekleme)
     x = item_check()
-    print(x[0])
-    if x[0] not in ('Legend', 'Meteo', 'Bio', 'Bandit'):
-        time.sleep(random.uniform(0.45, 0.9))
+    print(x[-1])
+    if x[-1] not in ('Legend', 'Meteo', 'Attack', 'Bio', 'Bandit', 'Navas', 'Agareth', 'Warrior', 'Asmodi', 'Kobal'):
+        time.sleep(random.uniform(0.4, 0.6))
         double_click((random.randint(931,955)),(random.randint(647,668)))   #item
         time.sleep(random_bekleme)
-        double_click((random.randint(868,891)),(random.randint(647,668)))   #prefix silme
-        time.sleep(random.uniform(0.7, 0.9))
+        double_click((random.randint(868,891)),(random.randint(647,668)))   #suffix silme
+        time.sleep(random.uniform(0.4, 0.6))
         double_click((random.randint(1183,1214)),(random.randint(859,870))) #refine button
         time.sleep(random_bekleme)
         #double_click((random.randint(1183,1214)),(random.randint(859,870))) #ok button
         #time.sleep(random.uniform(0.7, 0.9))
         double_click((random.randint(931,955)),(random.randint(647,668)))   #item
         time.sleep(random_bekleme)
-        double_click((random.randint(901,922)),(random.randint(647,668)))   #prefix basma
-        time.sleep(random.uniform(0.4, 0.8))
+        double_click((random.randint(901,922)),(random.randint(647,668)))   #suffix basma
+        time.sleep(random.uniform(0.2, 0.5))
         double_click((random.randint(1183,1214)),(random.randint(859,870))) #refine button
         time.sleep(random_bekleme)
         #double_click((random.randint(1183,1214)),(random.randint(859,870))) #ok button
@@ -82,11 +81,4 @@ while keyboard.is_pressed('q') == False:
         continue
     break
     
-print('Gelen ek:',x[0])
-
-
-    
-    
-
-
-
+print('Gelen ek:',x[-1])
