@@ -1,0 +1,4 @@
+Öğrenci adı:Mert Kara
+Not ortalaması:67.33333333333333
+Öğrenci adı:Mehmet Kara
+Not ortalaması:48.333333333333336

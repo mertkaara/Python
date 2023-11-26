@@ -1,0 +1,2 @@
+Mert Kara:55,65,82
+Mehmet Kara:25,50,70
